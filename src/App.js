@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CatList from './components/CatList';
+import { AddCat } from './components/AddCat';
+import { EditCat } from './components/EditCat';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<CatList />}/>
+        <Route path='add' element={<AddCat />} />
+        <Route path='edit/:id' element={<EditCat />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
